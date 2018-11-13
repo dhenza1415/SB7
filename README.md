@@ -1,6 +1,6 @@
-# SELFBOT ONLY <br>
-# SELFBOT 2asist 1 ajs <br>
-# BOT KICKER <br>
+# SUPORT BY SILENT TEAM BOT<br>
+# BEBEK BOT TEAM & JUNSAN<br>
+# SELFBOT 5asist 1 ajs <br>
 
 # GUNAKAN DENGAN BIJAK <br>
 # SEKEDAR BERBAGI ILMU BIAR BISA BERKEMBANG KETIKA LO SUDH DI ATAS JANGAN PERNAH SOMBONG DENGAN KARYA LO KARNA DULU LO BUKAN SIAPA-SIAPA.. <br>
@@ -26,11 +26,11 @@ pip3 install pafy<br>
 pip3 install wikipedia <br> 
 pip3 install tweepy<br> 
 pip3 install youtube_dl<br> 
-git clone https://github.com/dhenza1415/SBSILENT<br> 
+git clone https://github.com/dhenza1415/SB7<br> 
 ls<br> 
 cd SBSILENT<br> 
 ls<br> 
-python3 dhenza.py<br> 
+python3 dhenza7.py<br> 
 
 
 Suport by: TBP [TEAM BOT PROTECT]<br> 
