@@ -14,25 +14,25 @@ import time, random, multiprocessing, sys, json, codecs, threading, glob, re, st
 from gtts import gTTS
 from googletrans import Translator
 
-cl = LINE("Ezs2wsCRdZJaUL2BvJH7.ryGTdQ0xa4vDVgdudJE/XW.Vqll320MHxafzSnIeuMDsE6QNOGNsChnAYXlzx6qHzE=")
+cl = LINE("")
 cl.log("Auth Token : " + str(cl.authToken))
 
-ki = LINE("EzKGTOtJYgSpB1XZ91u9.k+n9YlUAYfbHu5wP4vHq/q.Pw7dwhJNBFCNXLhWW8oP0MFYaiRxeYs9YW7oUcyyO5Y=")
+ki = LINE("")
 ki.log("Auth Token : " + str(ki.authToken))
 
-kk = LINE("EzDCwhvwQX5zT6N4XXdc.cL7O15BJz3PwUe+Wo2vK7a.YEYv+wsZKSK8HI2RgXY/98QS0c3pPAQ9wsxOLpBsX2k=")
+kk = LINE("")
 kk.log("Auth Token : " + str(kk.authToken))
 
-kc = LINE("Ezu8dGGzUL6ZVv8Yq7F7.kBfVdPNp3W59E4fW983bPW.2vUEtvOMknkRa+Sj4By8cJnhyZe2purY7/WgD4+YlQI=")
+kc = LINE("")
 kc.log("Auth Token : " + str(kc.authToken))
 
-km = LINE("Ezu8dGGzUL6ZVv8Yq7F7.kBfVdPNp3W59E4fW983bPW.2vUEtvOMknkRa+Sj4By8cJnhyZe2purY7/WgD4+YlQI=")
+km = LINE("")
 km.log("Auth Token : " + str(km.authToken))
 
-kb = LINE("Ez70IAxrI8gwYqk2WbJa.6L+GtJLXpMDOZ1AhVfRhQG.92YivEOhDy9l7I22E3gK0nr3G7V212OIEwaQ1Gvn9MI=")
+kb = LINE("")
 kb.log("Auth Token : " + str(kb.authToken))
 
-sw = LINE("EzVfyiKGqO962QLh5wb1.tJhx4qV+KZkrLDqq41Rwqq.S3IBB8YCuuew+Vuy5gaiqsT9J9+tFgejevNZKGQW/YU=")
+sw = LINE("")
 sw.log("Auth Token : " + str(sw.authToken))
 
 oepoll = OEPoll(cl)
@@ -2848,8 +2848,8 @@ def bot(op):
                             if msg._from in admin:
                                  tz = pytz.timezone("Asia/Jakarta")
                                  timeNow = datetime.now(tz=tz)
-                                 Setmain['RAreadPoint'][msg.to] = msg_id
-                                 Setmain['RAreadMember'][msg.to] = {}
+                                 Setmain['SKreadPoint'][msg.to] = msg_id
+                                 Setmain['SKreadMember'][msg.to] = {}
                                  cl.sendMessage(msg.to, "Lurking berhasil diaktifkan\n\nTanggal : "+ datetime.strftime(timeNow,'%Y-%m-%d')+"\nJam [ "+ datetime.strftime(timeNow,'%H:%M:%S')+" ]")
                             
                         elif cmd == "lurk:off":
@@ -2857,16 +2857,16 @@ def bot(op):
                             if msg._from in admin:
                                  tz = pytz.timezone("Asia/Jakarta")
                                  timeNow = datetime.now(tz=tz)
-                                 del Setmain['RAreadPoint'][msg.to]
-                                 del Setmain['RAreadMember'][msg.to]
+                                 del Setmain['SKreadPoint'][msg.to]
+                                 del Setmain['SKreadMember'][msg.to]
                                  cl.sendMessage(msg.to, "Lurking berhasil dinoaktifkan\n\nTanggal : "+ datetime.strftime(timeNow,'%Y-%m-%d')+"\nJam [ "+ datetime.strftime(timeNow,'%H:%M:%S')+" ]")
                             
                         elif cmd == "lurkers":
                           if msg._from in admin:
-                            if msg.to in Setmain['RAreadPoint']:
-                                if Setmain['RAreadMember'][msg.to] != {}:
+                            if msg.to in Setmain['SKreadPoint']:
+                                if Setmain['SKreadMember'][msg.to] != {}:
                                     aa = []
-                                    for x in Setmain['RAreadMember'][msg.to]:
+                                    for x in Setmain['SKreadMember'][msg.to]:
                                         aa.append(x)
                                     try:
                                         arrData = ""
@@ -2901,12 +2901,12 @@ def bot(op):
                                     except:
                                         pass
                                     try:
-                                        del Setmain['RAreadPoint'][msg.to]
-                                        del Setmain['RAreadMember'][msg.to]
+                                        del Setmain['SKreadPoint'][msg.to]
+                                        del Setmain['SKreadMember'][msg.to]
                                     except:
                                         pass
-                                    Setmain['RAreadPoint'][msg.to] = msg.id
-                                    Setmain['RAreadMember'][msg.to] = {}
+                                    Setmain['SKreadPoint'][msg.to] = msg.id
+                                    Setmain['SKreadMember'][msg.to] = {}
                                 else:
                                     cl.sendMessage(msg.to, "User kosong...")
                             else:
@@ -2939,21 +2939,7 @@ def bot(op):
                               else:
                                   cl.sendMessage(msg.to, "Sudak tidak aktif")
 
-#===========add img============#                                                        
-                        elif cmd == "changedual":
-                          if wait["selfbot"] == True:
-                            if msg._from in admin:
-                                settings["ChangeVideoProfilevid"][msg._from] = True
-                                cl.sendMessage(msg.to,"Send Videonya...")
-                                
-                        elif cmd.startswith("changedualurl: "):
-                            if msg._from in admin:
-                                sep = msg.text.split(" ")
-                                url = msg.text.replace(sep[0] + " ","")                            
-                                cl.downloadFileURL(url,'path','video.mp4')
-                                settings["ChangeVideoProfilePicture"][msg._from] = True
-                                cl.sendMessage(msg.to, "Send Gambarnya.....")
-                                
+#===========add img============#                                                                                
                         elif cmd.startswith("addimg"):
                                 sep = text.split(" ")
                                 name = text.replace(sep[0] + " ","")
